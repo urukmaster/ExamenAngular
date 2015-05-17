@@ -17,28 +17,20 @@ var MoviesController = function($scope,$http) {
     $scope.movies = [
 
         {
-          title: "Avergers",
+          title: "Avengers",
           week:  "Lunes - Semana 8"
         },
         {
-          title: "Lambda Expressions Java 8",
+          title: "Mad Max",
           week:  "Lunes - Semana 9"
         },
         {
-          title: "Maven vs Gradle",
+          title: "Fast $ Furious 7",
           week:  "Lunes - Semana 10"
         },
         {
-          title: "JUnit (Spring)",
+          title: "Kill the messenger",
            week:  "Lunes - Semana 11"
-        },
-        {
-          title: "Unit Testing (Angular)",
-           week:  "Lunes - Semana 12"
-        },
-        {
-          title: "Angular Websockets",
-           week:  "Lunes - Semana 13"
         }
     ];
 
