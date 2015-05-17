@@ -16,9 +16,10 @@ var GeneralController = function($scope,$http) {
     $scope.imdbData = {};
     $scope.login = function(){
         if($scope.usuario==="admin" && $scope.contrasena ==="123"){
-            $scope.cheked = true;
+            //$location.href= 'cinema.html';
+            alert("Si");
         }else{
-            
+            alert("no");
         }
     }
 };
