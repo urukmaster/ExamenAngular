@@ -4,7 +4,7 @@
 	<head>
 	    <meta charset="utf-8">
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-		
+
 		<script src="resources/js/lib/jquery-1.8.2.js"></script>
 		<script src="resources/js/lib/angular/angular.js" ng:autobind></script>
 		<script src="resources/js/app.js"></script>
@@ -17,23 +17,23 @@
 		<link href="resources/css/app.css" rel="stylesheet"  type="text/css" />
 
 	</head>
-	
+
 	<body>
 		<div id="wrapper" ng-controller="GeneralController">
 			<div class="container" ng-hide="cheked">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-			                <div class="jumbotron">
-                                <h1>Iniciar sesión</h1>
-                                <form>
-                                    <div class="form-group">
-                                        <label>Usuario:</label>
-                                        <input type="text" class="form-control " ng-model="usuario">
-                                        <label >Contraseña:</label>
-                                        <input type="password" class="form-control" ng-model="contrasena">
-                                        <button class="btn btn-default"  ng-click="login()">Ingresar</button>
-                                    </div>
-                                </form>
+						<div class="jumbotron">
+							<h1>Iniciar sesión</h1>
+							<form>
+								<div class="form-group">
+									<label>Usuario:</label>
+									<input type="text" class="form-control " ng-model="usuario">
+									<label >Contraseña:</label>
+									<input type="password" class="form-control" ng-model="contrasena">
+									<button class="btn btn-default"  ng-click="login()">Ingresar</button>
+								</div>
+							</form>
                         </div>
 					</div>
 				</div>
