@@ -3,5 +3,12 @@
  */
 var FacturaController = function($scope,$http) {
 
+    var obtenerTotal = function(){
+
+    };
+
+    var imprmirFactura = function(){
+
+    };
 
 };

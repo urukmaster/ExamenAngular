@@ -1,15 +1,6 @@
-'use strict';
-
 /**
- * GeneralController
- * @constructor
+ * Created by JuanManuel on 18/05/2015.
  */
-
-Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
-};
 
 var MoviesController = function($scope,$http) {
 
@@ -18,15 +9,15 @@ var MoviesController = function($scope,$http) {
 
         {
           title: "Avengers",
-          week:  "Lunes - Semana 8"
+          week:  "8:00 PM"
         },
         {
           title: "Mad Max",
-          week:  "Lunes - Semana 9"
+          week:  "7:45 PM"
         },
         {
-          title: "Fast $ Furious 7",
-          week:  "Lunes - Semana 10"
+          title: "Fast & Furious 7",
+          week:  "6:00 PM"
         },
         {
           title: "Kill the messenger",
@@ -34,11 +25,6 @@ var MoviesController = function($scope,$http) {
         }
     ];
 
-    $scope.actualIndex = 0;
 
-    $scope.init = function() {
-    };    
-
-    $scope.init();
 
 };

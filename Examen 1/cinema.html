@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:ng="http://angularjs.org" class="ng-app:PickPresentation" id="ng-app" ng-app="PickPresentation">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+    <script src="resources/js/lib/jquery-1.8.2.js"></script>
+    <script src="resources/js/lib/angular/angular.js" ng:autobind></script>
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/services.js"></script>
+    <script src="resources/js/controllers/MoviesController.js"></script>
+    <script src="resources/js/controllers/GeneralController.js"></script>
+    <script src="resources/js/controllers/ButacasController.js"></script>
+    <script src="resources/js/controllers/FacturaController.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+    <link href="resources/css/app.css" rel="stylesheet"  type="text/css" />
+
+</head>
+
+<body>
+    <section ng-init="1">
+        <ul class="nav nav-pills">
+            <li> <a href ng-click="tab = 1">Peliculas</a> </li>
+            <li> <a href ng-click="tab = 2">Butacas</a> </li>
+            <li> <a href ng-click="tab = 3">Compra</a> </li>
+        </ul>
+        <div class="panel" ng-controller="MoviesController" ng-show="tab === 1">
+            <div ng-repeat="x in movies">
+                <ul>
+                    <li>{{x.title}}</li>
+                    <li>{{x.week}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel" ng-controller="ButacasController"  ng-show="tab === 2">
+            <div class="row" >
+                <div class="col-md-3" ng-repeat="x in butacas">
+                    <label>{{x.puesto}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
