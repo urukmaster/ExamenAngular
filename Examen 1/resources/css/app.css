@@ -44,3 +44,11 @@ html, body {
 .yellowStar{
   color: #ED9C28 !important;
 }
+
+.login{
+  padding-top: 40px;
+}
+
+.log{
+  width: 100%;
+}
