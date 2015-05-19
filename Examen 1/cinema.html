@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html xmlns:ng="http://angularjs.org" class="ng-app:PickPresentation" id="ng-app" ng-app="PickPresentation">
+	<head>
+	    <meta charset="utf-8">
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+		<script src="resources/js/lib/jquery-1.8.2.js"></script>
+		<script src="resources/js/lib/angular/angular.js" ng:autobind></script>
+		<script src="resources/js/app.js"></script>
+		<script src="resources/js/services.js"></script>
+		<script src="resources/js/controllers/GeneralController.js"></script>
+        <script src="resources/js/controllers/MoviesController.js"></script>
+		<script src="resources/js/controllers/ButacasController.js"></script>
+		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+		<script src="resources/js/custom.css"></script>
+
+		<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+		<link href="resources/css/app.css" rel="stylesheet"  type="text/css" />
+		<link href="resources/css/custom.css" rel="stylesheet"  type="text/css" />
+
+	</head>
+	
+	<body>
+
+		<nav class="navbar navbar-inverse">
+  			<div class="container-fluid">
+    			<div class="navbar-header">
+      				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+      				<a class="navbar-brand" href="#">CineTico</a>
+    			</div>
+
+    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      				<ul class="nav navbar-nav">
+        			
+      				</ul>
+    			</div>
+  			</div>
+		</nav>
+		<div id="wrapper" ng-controller="GeneralController">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<section ng-init="tab = 1">
+							<ul class="nav nav-pills">
+								<li ng-class="{active:tab == 1}"><a href ng-click="tab = 1">Peliculas</a></li>
+								<li ng-class="{active:tab == 2}"><a href ng-click="tab = 2">Butacas</a></li>
+								<li ng-class="{active:tab == 3}"><a href ng-click="tab = 3">Factura</a></li>
+							</ul>
+							<div class="panel" ng-show="tab == 1">
+        						<h1>Películas en cartelera</h1>
+        						<div id="wrapper" ng-controller="MoviesController">
+         							<div class="row">
+          								<div class="col-sm-6 col-md-3" ng-repeat="movie in movies">
+           									<div class="thumbnail">
+            									<img ng-src="{{movie.image}}" alt="">
+            										<div class="caption">
+             											<h3>{{movie.title}}</h3>
+             											<p>{{movie.description}}</p>
+             											<h4>Tandas</h4>
+             											<div ng-repeat="showtime in movie.times">
+              												<p><a href="#" class="btn btn-primary" role="button" ng-click = "chooseMovie(movie, showtime)">{{showtime.time}}</a></p>
+             											</div>
+             											<input type="label" ng-model="chosenMovie.value">
+             											<input type="label" ng-model="chosenTime.value">
+           											</div>
+          										</div>
+         								</div>
+        							</div>
+       							</div>
+       						</div>
+							<div class="panel" ng-show="tab == 2">
+				            	<h1>Butacas</h1>
+				            	<div class="row" ng-controller="ButacasController">
+                        			<div class="col-sm-5 col-md-5">
+                            		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasA" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">A{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasB" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">B{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasC" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">C{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasD" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">D{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasE" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">E{{$index+1}}</label>
+                              		</div>
+                             	</div>
+                             </div>
+                		</div>
+				
+							</div>
+							<div class="panel" ng-show="tab == 3">
+								<p>Factura</p>
+							</div>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

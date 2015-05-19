@@ -12,14 +12,13 @@ Array.prototype.remove = function(from, to) {
 };
 
 var GeneralController = function($scope,$http) {
-
+    $('#error').hide();
     $scope.imdbData = {};
     $scope.login = function(){
         if($scope.usuario==="admin" && $scope.contrasena ==="123"){
-            //$location.href= 'cinema.html';
-            alert("Si");
-        }else{
-            alert("no");
+            window.location= ('cinema.html');
+              }else{ 
+            $('#error').show();
         }
     }
 };

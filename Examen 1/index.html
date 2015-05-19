@@ -11,18 +11,19 @@
 		<script src="resources/js/services.js"></script>
 		<script src="resources/js/controllers/GeneralController.js"></script>
         <script src="resources/js/controllers/MoviesController.js"></script>
-        <script src="resources/js/controllers/ButacasController.js"></script>
-        <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-
 		<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
 		<link href="resources/css/app.css" rel="stylesheet"  type="text/css" />
+		<link href="resources/css/custom.css" rel="stylesheet"  type="text/css" />
 	</head>
 	
 	<body>
-		<div id="wrapper" ng-controller="GeneralController">
+		<div id="wrapper" class="login" ng-controller="GeneralController">
 			<div class="container" ng-hide="cheked">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
+						<div class="alert alert-dismissible alert-danger" id="error">
+  									<strong>¡Oh no!</strong> Usuario o contraseña incorrecta.
+								</div>
 			                <div class="jumbotron">
                                 <h1>Iniciar sesión</h1>
                                 <form>
@@ -31,39 +32,12 @@
                                         <input type="text" class="form-control " ng-model="usuario">
                                         <label >Contraseña:</label>
                                         <input type="password" class="form-control" ng-model="contrasena">
-                                        <button class="btn btn-default"  ng-click="login()">Ingresar</button>
+                                        <br>
+                                        <button class="btn log btn-success" ng-click="login()">Ingresar</button>
                                     </div>
                                 </form>
-                        </div>
+                        	</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div id="wrapper">
-			<div class="container" ng-hide="cheked">
-				<div class="col-md-6 col-md-offset-3">
-			         <div class="jumbotron">
-                    	<h1>Butacas</h1>
-                        <form>
-                            <div class="row" ng-controller="ButacasController">
-                            		<div class="row-fluid" style="margin-right:15px;display:inline">
-                            			<label ng-repeat= "butaca in butacasA" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">A{{$index+1}}</label>
-                              		</div>
-                              		<div class="row-fluid" style="margin-right:15px;display:inline">
-                            			<label ng-repeat= "butaca in butacasB" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">B{{$index+1}}</label>
-                              		</div>
-                              		<div class="row-fluid" style="margin-right:15px;display:inline">
-                            			<label ng-repeat= "butaca in butacasC" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">C{{$index+1}}</label>
-                              		</div>
-                              		<div class="row-fluid" style="margin-right:15px;display:inline">
-                            			<label ng-repeat= "butaca in butacasD" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">D{{$index+1}}</label>
-                              		</div>
-                              		<div class="row-fluid" style="margin-right:15px;display:inline">
-                            			<label ng-repeat= "butaca in butacasE" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">E{{$index+1}}</label>
-                              		</div>
-                             </div>
-                        </form>
-                	</div>
 				</div>
 			</div>
 		</div>
