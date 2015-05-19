@@ -11,6 +11,7 @@
 		<script src="resources/js/services.js"></script>
 		<script src="resources/js/controllers/GeneralController.js"></script>
         <script src="resources/js/controllers/MoviesController.js"></script>
+		<script src="resources/js/controllers/ButacasController.js"></script>
 		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
 		<script src="resources/js/custom.css"></script>
 
@@ -65,15 +66,39 @@
              											<div ng-repeat="showtime in movie.times">
               												<p><a href="#" class="btn btn-primary" role="button" ng-click = "chooseMovie(movie, showtime)">{{showtime.time}}</a></p>
              											</div>
-         											    <input type="label" ng-model="chosenMovie.value">
+             											<input type="label" ng-model="chosenMovie.value">
              											<input type="label" ng-model="chosenTime.value">
            											</div>
           										</div>
          								</div>
         							</div>
        							</div>
+       						</div>
 							<div class="panel" ng-show="tab == 2">
-								<p>Butacas</p>
+				            	<h1>Butacas</h1>
+				            	<div class="row" ng-controller="ButacasController">
+				            		<h2></h2>
+                        			<div class="col-sm-5 col-md-5">
+                            		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasA" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">A{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasB" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">B{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasC" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">C{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasD" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">D{{$index+1}}</label>
+                              		</div>
+                              		<div class="row-fluid" style="margin-right:15px;display:inline">
+                            			<label ng-repeat= "butaca in butacasE" class="span4 inline col-md-offser-4" style="margin-right:15px;{{butaca.getColor()}}" ng-click="seleccionar(butaca)">E{{$index+1}}</label>
+                              		</div>
+                             	</div>
+                             	<a type="button" ng-click="tab="3>Comprar</a>
+                             </div>
+                		</div>
+				
 							</div>
 							<div class="panel" ng-show="tab == 3">
 								<p>Factura</p>
