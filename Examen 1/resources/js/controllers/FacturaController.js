@@ -3,12 +3,13 @@
  */
 var FacturaController = function($scope,$http) {
 
-    var obtenerTotal = function(){
-
+    $scope.getTotal = function(){
+        return "5000";
     };
 
-    var imprmirFactura = function(){
+   $scope.getButacas = function(){
 
-    };
+       return "A1";
+   };
 
 };
