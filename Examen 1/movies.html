@@ -27,12 +27,13 @@
                             <h3>{{movie.title}}</h3>
                             <p>{{movie.description}}</p>
                             <h4>Tandas</h4>
-                            <p>
-                                <a href="#" class="btn btn-default"><buttontype="button" value="{{movie.time1}}" ng-click="chooseMovie(movie)">{{movie.time1}}</button></a>
-                                <a href="#" class="btn btn-default"><buttontype="button" value="{{movie.time2}}" ng-click="chooseMovie(movie)">{{movie.time2}}</button></a>
-                                <input type="text" ng-model="chosenMovie.value">
-                                <input type="text" ng-model="chosenTime.value">
-                            </p>
+                            <div ng-repeat="showtime in movie.times">
+                                <p><a href="#" class="btn btn-primary" role="button" ng-click = "chooseMovie(movie, showtime)">{{showtime.time}}</a></p>
+                            </div>
+
+                            <input type="text" ng-model="chosenMovie.value">
+
+                            <input type="text" ng-model="chosenTime.value">
                         </div>
                     </div>
                 </div>
