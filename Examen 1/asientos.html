@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:ng="http://angularjs.org" class="ng-app:PickPresentation" id="ng-app" ng-app="PickPresentation">
+	<head>
+	    <meta charset="utf-8">
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+		<script src="resources/js/lib/jquery-1.8.2.js"></script>
+		<script src="resources/js/lib/angular/angular.js" ng:autobind></script>
+		<script src="resources/js/app.js"></script>
+		<script src="resources/js/services.js"></script>
+		<script src="resources/js/controllers/GeneralController.js"></script>
+        <script src="resources/js/controllers/MoviesController.js"></script>
+        <script src="resources/js/controllers/ButacasController.js"></script>
+		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+		<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+		<link href="resources/css/app.css" rel="stylesheet"  type="text/css" />
+
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div class="container" ng-hide="cheked">
+				<div class="col-md-6 col-md-offset-3">
+			         <div class="jumbotron">
+                    	<h1>Butacas</h1>
+                        <form>
+                            <div class="form-group">
+                            	<table ng-controller="ButacasController">
+                            		<tr ng-repeat= "butaca in butacas">
+                            			<td>{{butaca.precio}}</td>
+                            		</tr>
+                            	</table>
+                            </div>
+                        </form>
+                	</div>
+				</div>
+			</div>
+		</div>
+	</body>

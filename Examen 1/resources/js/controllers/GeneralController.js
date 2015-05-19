@@ -23,3 +23,4 @@ var GeneralController = function($scope,$http) {
         }
     }
 };
+
