@@ -52,8 +52,26 @@
 								<li ng-class="{active:tab == 3}"><a href ng-click="tab = 3">Factura</a></li>
 							</ul>
 							<div class="panel" ng-show="tab == 1">
-								<p>Pelis</p>
-							</div>
+        						<h1>Películas en cartelera</h1>
+        						<div id="wrapper" ng-controller="MoviesController">
+         							<div class="row">
+          								<div class="col-sm-6 col-md-3" ng-repeat="movie in movies">
+           									<div class="thumbnail">
+            									<img ng-src="{{movie.image}}" alt="">
+            										<div class="caption">
+             											<h3>{{movie.title}}</h3>
+             											<p>{{movie.description}}</p>
+             											<h4>Tandas</h4>
+             											<div ng-repeat="showtime in movie.times">
+              												<p><a href="#" class="btn btn-primary" role="button" ng-click = "chooseMovie(movie, showtime)">{{showtime.time}}</a></p>
+             											</div>
+         											    <input type="label" ng-model="chosenMovie.value">
+             											<input type="label" ng-model="chosenTime.value">
+           											</div>
+          										</div>
+         								</div>
+        							</div>
+       							</div>
 							<div class="panel" ng-show="tab == 2">
 								<p>Butacas</p>
 							</div>
