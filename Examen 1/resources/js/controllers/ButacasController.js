@@ -1,151 +1,76 @@
 /**
- * Created by JuanManuel on 18/05/2015.
+ * Created by Esteban-Develop on 17/05/2015.
  */
-var ButacasController = function($scope,$http) {
-    $scope.butacas = [
-        {
-            puesto: "A1",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+'use strict';
 
-        },
-        {
-            puesto: "A2",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+/**
+ * NutacasController
+ * @constructor
+ */
 
-        },
-        {
-            puesto: "A3",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+App.controller('ButacasController',function($scope, $http){
+  $scope.imdbData = {};
+  $scope.Butacas =  getButacas(["A", "B", "C", "D"]);
 
-        },
-        {
-            puesto: "A4 ",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+  $scope.butacasSeleccionadas = new Array();
+  $scope.compra = 0;
 
-        },
-        {
-            puesto: "B1",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+  function getButacas(posicionB){
+    var butacas = [21];
+    var numAsiento = 21;
+    for (var i = 0; i < 21; i++) {
+        butacas[i] = {reservado:false, pagado:false, precio:1000, posicion:posicionB[random()] + numAsiento};
+        numAsiento--;
+    };
+    return butacas;
+}
 
-        },
-        {
-            puesto: "B2",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
+  function random(){
+    return Math.floor((Math.random() * 3) + 0);
+  }
 
-        },
-        {
-            puesto: "B3",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "B4",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "C1",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "C2",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "C3",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "C4",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "D1",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "D2",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "D3",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "D4",
-            precio: 3000,
-            tipo: "Normal",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "P1",
-            precio: 5000,
-            tipo: "Preferencial",
-            reservado: false,
-            comprado: false
-
-        },
-        {
-            puesto: "P2",
-            precio: 5000,
-            tipo: "Preferencial",
-            reservado: false,
-            comprado: false
-
+     $scope.seleccionar = function($butaca){
+      if($butaca.pagado){
+            alert('Ya la butaca esta ocupada');
+        }else if($butaca.reservado){
+            $butaca.reservado = false;
+            $scope.eliminarButaca($butaca);
+        }else{
+            $butaca.reservado = true;
+            $scope.asignar($butaca);
         }
-    ];
-};
+    };
+
+    $scope.asignar = function($butaca){
+      $scope.butacasSeleccionadas[$scope.compra] = $butaca;
+      $scope.compra++;
+    }
+
+    $scope.eliminarButaca = function($butaca){
+      for (var i = $scope.butacasSeleccionadas.length - 1; i >= 0; i--) {
+        if($scope.butacasSeleccionadas[i]=== $butaca){
+          $scope.butacasSeleccionadas[i] === null;
+        }
+      };
+    }
+
+    $scope.comprar = function(){
+      var arraySeleccionada = new Array();
+      for (var i = $scope.butacasSeleccionadas.length - 1; i >= 0; i--) {
+        if($scope.butacasSeleccionadas[i] != null){
+          arraySeleccionada[i] = $scope.butacasSeleccionadas[i];
+        }
+          AppServices.Butacas = arraySeleccionada;
+          $http.response.send('/factura');
+      };
+
+    }
+    $scope.getPelicula = function(){
+        return AppServices.getPelicula() + " " + AppServices.getTanda();
+    }
+
+    $scope.init = function() {
+    };    
+
+    $scope.init();
+});

@@ -1,15 +1,23 @@
 /**
  * Created by JuanManuel on 17/05/2015.
  */
-var FacturaController = function($scope,$http) {
+App.controller('FacturaController',function($scope,$http) {
+    $scope.butacasAComprar = Array();
+    $scope.totalAPagar = 0;
+    $scope.PeliculaElgida = "";
+    $scope.TandaElegida = "";
 
-    $scope.getTotal = function(){
-        return "5000";
-    };
+    $scope.calcularTotal = function(){
+       $scope.butacasAComprar = AppServices.getButacas();
+       $scope.PeliculaElgida = AppServices.getPelicula();
+       $scope.TandaElegida = AppServices.getTanda();
 
-   $scope.getButacas = function(){
+       for(var i = 0;i < $scope.butacasAComprar.length;i++){
 
-       return "A1";
-   };
+           $scope.totalAPagar = $scope.totalAPagar +  $scope.butacasAComprar[i].precio;
 
-};
+       }
+        return $scope.totalAPagar;
+    }
+
+});
