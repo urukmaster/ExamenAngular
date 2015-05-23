@@ -1,0 +1,14 @@
+	<h1>Butacas</h1>
+    <h2>{{getPelicula()}}</h2>
+	<div class="col-sm-5 col-md-5">
+    	<div class="row-fluid" style="margin-right:15px;display:inline">
+	    	<div>
+	            <label ng-repeat="butacaC in Butacas" class="span4 inline col-md-offser-4" ng-class="{red:butacaC.pagado, green:!butacaC.reservado, gray:butacaC.reservado}" style="margin:20px;" ng-click="seleccionar(butacaC)">{{butacaC.posicion + " Precio: " + butacaC.precio}}</label>
+	        </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-primary" role="button" ng-click = "comprar()">Comprar</a>
+    </div>
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular/angular-route.js"></script>
+    <script src="../app.js"></script>

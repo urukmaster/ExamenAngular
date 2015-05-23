@@ -3,7 +3,9 @@
 /**
  * Created by Mauricio Fernandez on 17/05/2015.
  */
+App.controller('MoviesController',function($scope,$http,$location) {
 
+<<<<<<< HEAD
 Array.prototype.remove = function(from, to) {
   var rest = this.slice((to || from) + 1 || this.length);
   this.length = from < 0 ? this.length + from : from;
@@ -14,6 +16,8 @@ var MoviesController = function($scope,$http) {
     $scope.chosenMovie = {id:"",value:""};
     $scope.chosenTime = {id:"",value:""};
 
+=======
+>>>>>>> 9b1ef17cfb2ce48f31b4de7bb6657d80f4167b28
     $scope.movies = [
 
         {
@@ -69,14 +73,31 @@ var MoviesController = function($scope,$http) {
         }
     ];
 
+<<<<<<< HEAD
+=======
+    $scope.chooseMovie = function($pelicula, $time){
+
+        AppServices.Pelicula = $pelicula.title;
+        AppServices.Tanda = $time;
+        $http.response.send('/butacas');
+
+    };
+
+>>>>>>> 9b1ef17cfb2ce48f31b4de7bb6657d80f4167b28
     $scope.init = function() {
     };    
 
     $scope.init();
 
+<<<<<<< HEAD
     $scope.chooseMovie = function(movie, showtime){
         $scope.chosenMovie.value = movie.title;
         $scope.chosenTime.value = showtime.id;
     };
 
 };
+=======
+
+
+});
+>>>>>>> 9b1ef17cfb2ce48f31b4de7bb6657d80f4167b28

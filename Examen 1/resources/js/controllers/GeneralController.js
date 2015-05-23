@@ -5,13 +5,7 @@
  * @constructor
  */
 
-Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
-};
-
-var GeneralController = function($scope,$http) {
+App.controller('GeneralController', function($scope,$http) {
     $('#error').hide();
     $scope.imdbData = {};
     $scope.login = function(){
@@ -21,5 +15,9 @@ var GeneralController = function($scope,$http) {
             $('#error').show();
         }
     }
+<<<<<<< HEAD
 };
+=======
+});
+>>>>>>> 9b1ef17cfb2ce48f31b4de7bb6657d80f4167b28
 

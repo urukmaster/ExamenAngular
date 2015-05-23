@@ -1,0 +1,16 @@
+<div>
+    <h1>
+        Factura
+    </h1>
+    <h1>{{PeliculaElgida+" "+TandaElegida}}</h1>
+    <h1>Asientos</h1>
+    <div>
+        <label ng-repeat="butaca in butacasAComprar"> {{butaca.posicion}} </label>
+    </div>
+    <h1>Total</h1>
+    <label>{{calcularTotal()}}</label>
+
+</div>
+<script src="../lib/angular/angular.js"></script>
+<script src="../lib/angular/angular-route.js"></script>
+<script src="../app.js"></script>
